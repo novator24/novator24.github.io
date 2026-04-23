@@ -1,0 +1,36 @@
+{
+    "inbounds": [{ "tag": "in", "port": 10808, "protocol": "socks", "settings": { "auth": "noauth" }, "sniffing": { "enabled": true, "destOverride": ["http", "tls"] } }],
+    "outbounds": [
+    {
+      "tag": "proxy",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "2605:e440:30::1:2c6",
+            "port": 443,
+            "users": [
+              {
+                "id": "f27dd005-bbac-4877-95d8-b79cc4a4f0fc",
+                "flow": "xtls-rprx-vision",
+                "encryption": "none"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "reality",
+        "realitySettings": {
+          "fingerprint": "chrome",
+          "serverName": "www.microsoft.com",
+          "publicKey": "ABxY0-m9_tq85ZZPSqBDMRJ8vAtBWB8YtjOvxhN2x30",
+          "shortId": "726acc4f",
+          "spiderX": ""
+        }
+      }
+    }
+  ],
+  "routing": { "domainStrategy": "AsIs", "rules": [{ "type": "field", "ip": ["geoip:private"], "outboundTag": "direct" }] }
+}
